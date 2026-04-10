@@ -10,6 +10,19 @@
 
   --color-card: hsl(var(--card));
 
+  /* ⭐ NEW: twinkle animation */
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.2);
+    }
+  }
+
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
   --animate-fade-in: fade-in 0.7s ease-out forwards;
@@ -64,15 +77,19 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: 220 25% 96%;
+    --foreground: 222 40% 15%;
 
-    --card: 0 0% 100%;
+    --card: 220 20% 98%;
 
-    --primary: 250 47% 60%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 250 65% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
+    --border: 220 20% 88%;
+
+    /* ⭐ نجوم بنفس الثيم */
+    --star-color: 250 40% 55%;
+    --star-opacity: 0.2;
   }
 
   .dark {
@@ -85,6 +102,10 @@
     --primary-foreground: 213 31% 91%;
 
     --border: 217 33% 20%;
+
+    /* ⭐ Dark Mode Stars */
+    --star-color: 0 0% 100%;
+    --star-opacity: 1;
   }
 
   * {
@@ -146,14 +167,27 @@
          hover:scale-105 active:scale-95;
 }
 
+/* ⭐ UPDATED (مهم) */
 @utility star {
-  @apply absolute rounded-full bg-white;
-  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+  @apply absolute rounded-full;
+  background-color: hsl(var(--star-color) / var(--star-opacity));
+  box-shadow: 0 0 8px 2px hsl(var(--star-color) / 0.3);
+  animation: twinkle 3s ease-in-out infinite;
 }
 
+/* ⭐ تنويع الحركة */
+.star:nth-child(odd) {
+  animation-duration: 2s;
+}
+.star:nth-child(even) {
+  animation-duration: 4s;
+}
+
+/* 🌠 UPDATED */
 @utility meteor {
-  @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+  @apply absolute rounded-full;
+  background: linear-gradient(to right, transparent, hsl(var(--star-color)));
+  box-shadow: 0 0 10px 5px hsl(var(--star-color) / 0.3);
 }
 
 #root {

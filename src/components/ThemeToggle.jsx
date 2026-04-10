@@ -25,9 +25,13 @@ export const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className={cn(
-        "fixed top-12 right-5 md:right-10 z-50 p-2 md:p-3 rounded-full",
-        "bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700",
-        "shadow-md dark:shadow-lg transition-all duration-300",
+        "fixed top-12 right-5 md:right-10 z-50",
+        "p-3 rounded-full",
+        "backdrop-blur-xl border border-white/10",
+        "bg-white/60 dark:bg-black/40",
+        "shadow-lg shadow-black/10 dark:shadow-black/40",
+        "hover:scale-110 active:scale-95",
+        "transition-all duration-300 ease-out",
       )}
     >
       {isDarkMode ? (
