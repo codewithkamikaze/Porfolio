@@ -2,6 +2,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import weatherImg from "../assets/projects/weather.png";
 import taskImg from "../assets/projects/task.png";
 import dashboardImg from "../assets/projects/dashboard.png";
+import ecomImg from "../assets/projects/ecom.png";
 
 const projects = [
   {
@@ -33,6 +34,16 @@ const projects = [
     tags: ["React", "material UI", "React-Route"],
     demoUrl: "https://dashboard-with1-react.netlify.app/",
     githubUrl: "https://github.com/codewithkamikaze/Dashboard-react.git",
+  },
+  {
+    id: 4,
+    title: "Ecommerce Power Tools",
+    description:
+      "Power up your business with this interactive admin suite, featuring real-time data tracking, responsive UI with TailwindCSS, and robust state management.",
+    image: ecomImg,
+    tags: ["React", "TailwindCSS", "Redux"],
+    demoUrl: "https://ecom-power-tools.netlify.app/",
+    githubUrl: "https://github.com/codewithkamikaze/Ecom-client.git",
   },
 ];
 
